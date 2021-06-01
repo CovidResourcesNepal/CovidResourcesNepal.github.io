@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+.Container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.Homepage-bg {
+  background-image: url(./landingPagePicture.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Homepage-help {
+  background-color: #282c34;
+  color: white;
+  justify-content: start;
+  padding-top: 10vh;
+  font-size: calc(10px + 2vmin);
+}
+
+.Homepage-about {
+  justify-content: start;
+  padding-top: 10vh;
+  font-size: calc(5px + 2vmin);
+}
+
+.Homepage-about-paragraph {
+  width: 80%;
+}
+
+.Card-container {
+  background-color: white;
+  color: black;
+  padding: 5%;
+  font-size: calc(5px + 2vmin);
+}
+
+.Card-container h2 {
+  font-size: calc(10px + 2vmin);
+}
+
+.Footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: .5rem;
+  text-align: center;
+  background-color: lightgray;
+}
+
+.container_footer{
+  margin-right: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+font{
+  margin-right: 2%;
+}
