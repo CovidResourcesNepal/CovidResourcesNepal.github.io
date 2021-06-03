@@ -1,0 +1,46 @@
+{
+    "core": [
+        {
+            "name": "Bidhi Mandal",
+            "email": "bmandal1@babson.edu"
+        },
+        {
+            "name": "Kailash Raj Pandey",
+            "email": "kailashhimal1996@gmail.com"
+        },
+        {
+            "name": "Prabhakar Kafle",
+            "email": "pkafle@mit.edu"
+        },
+        {
+            "name": "Sriyans Rauniyar",
+            "email": "rauniyar@princeton.edu"
+        }
+    ],
+    "steering": [
+        {
+            "name": "Ankit Bhandari"
+        },
+        {
+            "name": "Aryan Pandey"
+        },
+        {
+            "name": "Dipti Gyawali"
+        },
+        {
+            "name": "Nigin Pun"
+        },
+        {
+            "name": "Ruby Shah"
+        },
+        {
+            "name": "Saira Ghimire"
+        },
+        {
+            "name": "Saurav Gyawali"
+        },
+        {
+            "name": "Shubham Jha"
+        }
+    ]
+}
