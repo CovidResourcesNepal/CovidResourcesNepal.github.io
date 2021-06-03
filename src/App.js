@@ -143,7 +143,7 @@ export default class App extends React.Component {
         </Container>
 
         <Container className="section homepage-team pt-0">
-          <h3 className="section-header">Working Team</h3>
+          <h3 className="section-header">Team Leads</h3>
           <TeamGallery members={this.state.team.steering}/>
         </Container>
 
