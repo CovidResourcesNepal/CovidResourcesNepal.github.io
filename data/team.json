@@ -1,20 +1,20 @@
 {
     "core": [
         {
-            "name": "Bidhi Mandal",
-            "linkedin": "https://www.linkedin.com/in/bidhi-mandal-5577761ab/"
-        },
-        {
             "name": "Kailash Raj Pandey",
             "linkedin": "https://www.linkedin.com/in/pandeykailash/"
         },
         {
-            "name": "Prabhakar Kafle",
-            "linkedin": "https://www.linkedin.com/in/prabhakarkafle/"
-        },
-        {
             "name": "Sriyans Rauniyar",
             "linkedin": "https://www.linkedin.com/in/sriyans-rauniyar-0aab371b4/"
+        },
+        {
+            "name": "Bidhi Mandal",
+            "linkedin": "https://www.linkedin.com/in/bidhi-mandal-5577761ab/"
+        },
+        {
+            "name": "Prabhakar Kafle",
+            "linkedin": "https://www.linkedin.com/in/prabhakarkafle/"
         }
     ],
     "steering": [
