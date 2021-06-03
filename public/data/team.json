@@ -1,25 +1,28 @@
 {
     "core": [
         {
-            "name": "Bidhi Mandal",
-            "email": "bmandal1@babson.edu"
-        },
-        {
             "name": "Kailash Raj Pandey",
-            "email": "kailashhimal1996@gmail.com"
-        },
-        {
-            "name": "Prabhakar Kafle",
-            "email": "pkafle@mit.edu"
+            "linkedin": "https://www.linkedin.com/in/pandeykailash/"
         },
         {
             "name": "Sriyans Rauniyar",
-            "email": "rauniyar@princeton.edu"
+            "linkedin": "https://www.linkedin.com/in/sriyans-rauniyar-0aab371b4/"
+        },
+        {
+            "name": "Bidhi Mandal",
+            "linkedin": "https://www.linkedin.com/in/bidhi-mandal-5577761ab/"
+        },
+        {
+            "name": "Prabhakar Kafle",
+            "linkedin": "https://www.linkedin.com/in/prabhakarkafle/"
         }
     ],
     "steering": [
         {
             "name": "Ankit Bhandari"
+        },
+        {
+            "name": "Anshuraj Sedai"
         },
         {
             "name": "Aryan Pandey"
@@ -28,7 +31,13 @@
             "name": "Dipti Gyawali"
         },
         {
+            "name": "Mahesh Yadav"
+        },
+        {
             "name": "Nigin Pun"
+        },
+        {
+            "name": "Ritesh KC"
         },
         {
             "name": "Ruby Shah"
@@ -37,10 +46,10 @@
             "name": "Saira Ghimire"
         },
         {
-            "name": "Saurav Gyawali"
+            "name": "Shubham Jha"
         },
         {
-            "name": "Shubham Jha"
+            "name": "Swaraj Pradhan"
         }
     ]
 }
