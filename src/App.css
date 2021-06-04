@@ -52,7 +52,7 @@
 }
 
 .top-hero {
-  margin: 60px 0;
+  margin: 15px 0;
   max-width: max(800px, 60%);
 }
 #hero-text {
@@ -147,5 +147,11 @@ p#hero-subtitle {
   .button-info{
     margin-left:50px;
     margin-right: 50px;
+    width: 300px;
   }
+
+  .top-hero {
+    margin: 60px 0;
+    max-width: max(800px, 60%);
+  }  
 }

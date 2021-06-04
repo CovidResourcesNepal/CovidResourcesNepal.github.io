@@ -12,7 +12,7 @@ import TeamGallery from './components/TeamGallery'
 
 import './style.scss';
 import './App.css';
-import { Modal, ListGroup } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 
 export default class App extends React.Component {
   constructor() {
