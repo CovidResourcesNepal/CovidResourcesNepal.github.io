@@ -79,7 +79,7 @@ export default class App extends React.Component {
         <Container className="section Homepage-help" fluid>
           <h1 className="section-header">How you can help</h1>
 
-          <Row className="justify-content-around align-items-center">
+          <Row className="justify-content-around align-items-stretch help-cards-container">
             <Col sm={12} md={6} lg={4}>
               <Card body className="help-card">
                 <h3>Donate</h3>
@@ -91,6 +91,7 @@ export default class App extends React.Component {
                   scroll through and support these fundraisers to the best of your ability. Every donation counts, every 
                   little effort adds up. 
                 </p>
+                <div className="spacer"></div>
                 <div className="button-container">
                 <Button variant="outline-primary" target="_blank"
                   href="https://docs.google.com/spreadsheets/d/1BQZvGqM3Ao48A6lHo_U1yfkFzb8DWPPnqhExFd6X8-8/edit#gid=570437755">
@@ -106,11 +107,19 @@ export default class App extends React.Component {
                   many more resources, campaigns, and fundraisers that need to be listed alongside. If you know of one, whether 
                   it be resources, campaigns or any support systems, please use the form below to let us know.
                 </p>
+                <div className="spacer"></div>
                 <div className="button-container">
-                <Button variant="outline-primary" target="_blank"
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScbwDZCkG8iiacpJb5rFBH71EC3wUExG_q-D2o_mAUpLlhHGQ/viewform">
-                    Add Resource
-                </Button></div>
+                  <Button variant="outline-primary" target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScbwDZCkG8iiacpJb5rFBH71EC3wUExG_q-D2o_mAUpLlhHGQ/viewform">
+                      Add Resource
+                  </Button>
+                </div>
+                <div className="button-container mt-3">
+                  <Button variant="outline-primary" target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScDVTkpMDasRZEMy7zk-ALjH4ARE8AZlR5inpIc8opPbMdIHg/viewform">
+                      Suggest Changes
+                </Button>
+                </div>
               </Card>
             </Col> 
             <Col sm={12} md={6} lg={4}>
@@ -124,6 +133,7 @@ export default class App extends React.Component {
                   Please sign this petition organized by Nepal Rising to urge the US Department of State to support vaccine 
                   donations to Nepal. 
                 </p>
+                <div className="spacer"></div>
                 <div className="button-container">
                 <Button variant="outline-primary" target="_blank"
                   href="https://www.change.org/p/urge-us-government-to-send-emergency-covid-19-vaccine-humanitarian-aid-to-nepal">
@@ -222,15 +232,7 @@ export default class App extends React.Component {
               variant="outline-primary">
                 Medical Resources
               </Button>
-            </Row>
-            <Row>
-              <Button href="https://docs.google.com/spreadsheets/d/1i_AhVbNUkdSula82hzKPOuceQ6c4otNvvydyTFauWxI/edit#gid=0" 
-              className="resource-buttons" 
-              target="_blank"
-              variant="outline-primary">
-              Experts to Follow on Social Media
-              </Button>
-            </Row>          
+            </Row>       
         </Modal.Body>
         </Modal>
 

@@ -74,25 +74,36 @@ p#hero-subtitle {
   justify-content: start;
 }
 
+.help-cards-container > div {
+  margin: 15px auto;
+}
+
 .help-card {
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  padding: 15px;
-  margin: 15px auto;
+  padding: 15px 15px 0;
+  margin: 0 auto;
   max-width: 450px;
+  height: 100%;
+}
+.help-card > .card-body {
+  display: flex;
+  flex-direction: column;
 }
 
 .help-card  p {
   text-align: left;
 }
 .help-card:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .help-card h3 {
   /* font-size: calc(10px + 2vmin); */
   margin-bottom: 20px;
+}
+.spacer {
+  flex: 1 0 auto;
 }
 
 .Homepage-about-paragraph {
@@ -134,16 +145,12 @@ p#hero-subtitle {
 }
 
 @media only screen and (min-width: 768px) {
-  .button-container{
+  /* .button-container{
     position: absolute;
     bottom: 40px;
     width: 85%;
-  }
+  } */
   
-  .help-card {
-    height: 495px;
-  }
-
   .button-info{
     margin-left:50px;
     margin-right: 50px;

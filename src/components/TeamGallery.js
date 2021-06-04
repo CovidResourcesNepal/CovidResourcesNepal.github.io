@@ -6,8 +6,6 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 function TeamGallery(props) {
 
-    console.log(props);
-
     var linkedin = (url) =>
         <a href={url} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
     
