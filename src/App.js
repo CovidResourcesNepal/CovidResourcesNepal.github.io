@@ -61,7 +61,7 @@ export default class App extends React.Component {
               <Button variant="primary" size="lg" target="_blank" onClick={(e)=>this.setState({resourceShow:true})}>
                   Resources
               </Button>
-              <div className="button-info">List of available resources (medical, food, others)</div>
+              <div className="button-info">List of available resources <br/> (medical, food, mental health, others)</div>
             </Col>
             <Col>
               <Button variant="primary" size="lg" target="_blank"
@@ -178,43 +178,59 @@ export default class App extends React.Component {
 
         {/* Resource Modal */}
         <Modal show={resourceShow} onHide={(e)=>this.setState({resourceShow:false})} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Links to Resources</Modal.Title>
+        <Modal.Header closeButton >
+          <Modal.Title className="resources-title">Links to Resources</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <ListGroup>
-            <ListGroup.Item>
-              <a href="https://docs.google.com/spreadsheets/d/16ynrRYS3Qg6dVRG7UdQ2Gp4OdBpQ7doGdiCIkXdG9-0/edit#gid=0">
+            <Row>
+              <Button href="https://docs.google.com/spreadsheets/d/16ynrRYS3Qg6dVRG7UdQ2Gp4OdBpQ7doGdiCIkXdG9-0/edit#gid=0"
+              className="resource-buttons"
+              target="_blank"
+              variant="outline-primary">
                 General Info on Covid-19
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <a href="https://docs.google.com/spreadsheets/d/1MwqmhNEFfw_7b_BVYiTiQUHKAUxgx1jp3maTT5qqmo8/edit#gid=0">
+              </Button>
+            </Row>
+            <Row>
+              <Button href="https://docs.google.com/spreadsheets/d/1MwqmhNEFfw_7b_BVYiTiQUHKAUxgx1jp3maTT5qqmo8/edit#gid=0"
+              className="resource-buttons"
+              target="_blank"
+              variant="outline-primary">
                 Helpline Resources
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <a href="https://docs.google.com/spreadsheets/d/12gKTeQR5Ma7Fmw0JorVLjKyJZdp0V1ZxyArLQCcYyK0/edit#gid=0">
+              </Button>
+            </Row>
+            <Row>
+              <Button href="https://docs.google.com/spreadsheets/d/12gKTeQR5Ma7Fmw0JorVLjKyJZdp0V1ZxyArLQCcYyK0/edit#gid=0"
+              className="resource-buttons"
+              target="_blank"
+              variant="outline-primary">
                 Mental Health Resources
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <a href="https://docs.google.com/spreadsheets/d/1S7JcDkfHdxu_iEZU5RklNT8buKCGv68vjetNKIg0nws/edit#gid=0">
+              </Button>
+            </Row>
+            <Row>
+              <Button href="https://docs.google.com/spreadsheets/d/1S7JcDkfHdxu_iEZU5RklNT8buKCGv68vjetNKIg0nws/edit#gid=0"
+              className="resource-buttons"
+              target="_blank"
+              variant="outline-primary">
                 Food Resources
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <a href="https://www.covidconnectnp.org/">
+              </Button>
+            </Row>
+            <Row>
+              <Button href="https://www.covidconnectnp.org/" 
+              className="resource-buttons"
+              target="_blank" 
+              variant="outline-primary">
                 Medical Resources
-              </a>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <a href="https://docs.google.com/spreadsheets/d/1i_AhVbNUkdSula82hzKPOuceQ6c4otNvvydyTFauWxI/edit#gid=0">
+              </Button>
+            </Row>
+            <Row>
+              <Button href="https://docs.google.com/spreadsheets/d/1i_AhVbNUkdSula82hzKPOuceQ6c4otNvvydyTFauWxI/edit#gid=0" 
+              className="resource-buttons" 
+              target="_blank"
+              variant="outline-primary">
               Experts to Follow on Social Media
-              </a>
-            </ListGroup.Item>          
-          </ListGroup>
+              </Button>
+            </Row>          
         </Modal.Body>
         </Modal>
 
@@ -236,8 +252,8 @@ export default class App extends React.Component {
           </li>
           <li>
             We are continuously updating this list and if you have any information/suggestion that does not fall 
-            under #2 above,  please email us at covidresourcesnepal@gmail.com with the subject line "Name of 
-            Category for the Information" For eg: "Suggestion: Food Resources"
+            under #2 above,  please email us at <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a> with
+            the subject line "Name of Category for the Information" For eg: "Suggestion: Food Resources"
           </li>
           </ol>
         </Modal.Body>
