@@ -55,7 +55,7 @@ export default class App extends React.Component {
                 href="https://docs.google.com/spreadsheets/d/1BQZvGqM3Ao48A6lHo_U1yfkFzb8DWPPnqhExFd6X8-8/edit#gid=570437755">
                   Fundraisers
               </Button>
-              <div className="button-info">List of organizations seeking donations</div>
+              <div className="button-info">List of campaigns seeking donations</div>
             </Col>
             <Col>
               <Button variant="primary" size="lg" target="_blank" onClick={(e)=>this.setState({resourceShow:true})}>

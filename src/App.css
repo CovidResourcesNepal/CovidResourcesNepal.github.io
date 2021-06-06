@@ -43,7 +43,7 @@
   z-index: -1;
 }
 .Homepage-bg::before {
-  background-image: url(./images/background.jpeg);
+  background-image: url(./images/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -152,8 +152,7 @@ p#hero-subtitle {
   } */
   
   .button-info{
-    margin-left:50px;
-    margin-right: 50px;
+    margin: auto;
     width: 300px;
   }
 
