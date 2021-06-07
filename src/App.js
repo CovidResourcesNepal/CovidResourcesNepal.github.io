@@ -7,6 +7,12 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import TeamGallery from './components/TeamGallery'
 
+// FontAwesome Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook } from "@fortawesome/free-brands-svg-icons"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+
 // Import stylesheets
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -169,17 +175,24 @@ export default class App extends React.Component {
 
         {/* Footer  */}
         <footer className="footer">
-          <Container>
+          <Container fluid> 
             <Row className="justify-content-between">
               <Col xs={12} md="auto">
-                &copy; Covid Resources Nepal
-              </Col>
-              <Col xs={12} md="auto">
-                Contact: <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
-              </Col>
-              <Col xs={12} md="auto">
+                &copy; Covid Resources Nepal <br />
+                Publicly gathered resources for Covid-19 <br />
                 <div onClick={(e)=>this.setState({disclaimerShow:true})} className="btn-cursor">
                   Disclaimer
+                </div>
+                <br className="d-md-none"/>
+              </Col>
+              <Col xs={12} md="auto">
+                Contact: <br />
+                <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
+                <br />
+                <div className="d-flex justify-content-center">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} /> </a>
+                <a href="https://twitter.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /> </a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
                 </div>
               </Col>
             </Row>

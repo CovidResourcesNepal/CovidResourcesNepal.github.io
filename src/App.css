@@ -124,14 +124,18 @@ p#hero-subtitle {
   padding: 10px 0;
   background-color: var(--primary);
   color: #f5f5f5;
+  font-size: 1rem;
 }
 
 .footer a {
   color: white;
+  padding-right: 10px;
 }
 
 .btn-cursor{
   cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
 }
 
 .resources-title{
