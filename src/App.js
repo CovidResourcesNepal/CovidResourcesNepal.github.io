@@ -1,24 +1,33 @@
 import React from 'react'
+
 // Import bootstrap components 
-import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
+import {
+  Container,
+  Button,
+  Row,
+  Col,
+  Card,
+  Modal,
+  Nav,
+  Navbar
+} from 'react-bootstrap'
+
 import TeamGallery from './components/TeamGallery'
+
+// React router
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 // FontAwesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook } from "@fortawesome/free-brands-svg-icons"
-import { faTwitter } from "@fortawesome/free-brands-svg-icons"
-import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
-// Import stylesheets
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
+// Stylesheets
 import './style.scss';
 import './App.css';
-import { Modal } from 'react-bootstrap'
 
 export default class App extends React.Component {
   constructor() {
@@ -39,118 +48,121 @@ export default class App extends React.Component {
     }).then(response => response.json())
       .then(data => this.setState({team: data}))
       .catch(error => console.log(error));
-
   }
   
   render() {
     const {resourceShow, disclaimerShow} = this.state;
-    return (
-      <div className="App">
 
-        {/* Landing section  */}
-        <Container className="section Homepage-bg" fluid>
+    const homepageElement = (
+    <div>
+      {/* Landing section  */}
+      <Container className="section Homepage-bg" fluid>
 
-          <div className="top-hero">
-            <h1 id="hero-text">COVID Resources for Nepal</h1>
-            <p id="hero-subtitle">A common source for resources, donation campaigns, support systems, and Nepal’s response to COVID-19 in one place</p>
-          </div>
+        <div className="top-hero">
+          <h1 id="hero-text">COVID Resources for Nepal</h1>
+          <p id="hero-subtitle">A common source for resources, donation campaigns, support systems, and Nepal’s response to COVID-19 in one place</p>
+        </div>
 
-          <Row>
-            <Col>
-              <Button variant="primary" size="lg" target="_blank" 
+        <Row>
+          <Col>
+            <Button variant="primary" size="lg" target="_blank" 
+              href="https://docs.google.com/spreadsheets/d/1BQZvGqM3Ao48A6lHo_U1yfkFzb8DWPPnqhExFd6X8-8/edit#gid=570437755">
+                Fundraisers
+            </Button>
+            <div className="button-info">List of campaigns seeking donations</div>
+          </Col>
+          <Col>
+            <Button variant="primary" size="lg" target="_blank" onClick={(e)=>this.setState({resourceShow:true})}>
+                Resources
+            </Button>
+            <div className="button-info">List of available resources <br/> (medical, food, mental health, others)</div>
+          </Col>
+          <Col>
+            <Button variant="primary" size="lg" target="_blank"
+              href="https://www.change.org/p/urge-us-government-to-send-emergency-covid-19-vaccine-humanitarian-aid-to-nepal">
+                Vaccine Petition
+            </Button>
+            <div className="button-info">Link to sign a petition</div>
+          </Col>
+        </Row>
+        <Row>
+        </Row>
+      </Container>
+
+      {/* Help section  */}
+      <Container className="section Homepage-help" fluid>
+        <h1 className="section-header">How you can help</h1>
+
+        <Row className="justify-content-around align-items-stretch help-cards-container">
+          <Col sm={12} md={6} lg={4}>
+            <Card body className="help-card">
+              <h3>Donate</h3>
+              <p>
+                We have compiled a list of fundraisers trying to appeal to a larger community and allocate funds to 
+                support Nepal in tackling and minimizing the effects of the Covid-19. These fundraisers are supporting 
+                initiatives on the ground that are related to medical needs, food distribution, delivery of home isolation 
+                kits among many others. We have tried to give a brief overview of each campaign. Please feel free to 
+                scroll through and support these fundraisers to the best of your ability. Every donation counts, every 
+                little effort adds up. 
+              </p>
+              <div className="spacer"></div>
+              <div className="button-container">
+              <Button variant="outline-primary" target="_blank"
                 href="https://docs.google.com/spreadsheets/d/1BQZvGqM3Ao48A6lHo_U1yfkFzb8DWPPnqhExFd6X8-8/edit#gid=570437755">
-                  Fundraisers
+                  Donate
+              </Button></div>
+            </Card>
+          </Col>
+          <Col sm={12} md={6} lg={4}>
+            <Card body className="help-card">
+              <h3>Add to the Database</h3>
+              <p>
+                Our volunteers have worked day and night to compile the data that we have. However, we believe there are 
+                many more resources, campaigns, and fundraisers that need to be listed alongside. If you know of one, whether 
+                it be resources, campaigns or any support systems, please use the form below to let us know.
+              </p>
+              <div className="spacer"></div>
+              <div className="button-container">
+                <Button variant="outline-primary" target="_blank"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScbwDZCkG8iiacpJb5rFBH71EC3wUExG_q-D2o_mAUpLlhHGQ/viewform">
+                    Add Resource
+                </Button>
+              </div>
+              <div className="button-container mt-3">
+                <Button variant="outline-primary" target="_blank"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScDVTkpMDasRZEMy7zk-ALjH4ARE8AZlR5inpIc8opPbMdIHg/viewform">
+                    Suggest Changes
               </Button>
-              <div className="button-info">List of campaigns seeking donations</div>
-            </Col>
-            <Col>
-              <Button variant="primary" size="lg" target="_blank" onClick={(e)=>this.setState({resourceShow:true})}>
-                  Resources
-              </Button>
-              <div className="button-info">List of available resources <br/> (medical, food, mental health, others)</div>
-            </Col>
-            <Col>
-              <Button variant="primary" size="lg" target="_blank"
+              </div>
+            </Card>
+          </Col> 
+          <Col sm={12} md={6} lg={4}>
+            <Card body className="help-card">
+              <h3>Sign Vaccine Petition</h3>
+              <p>
+                Only about 4% of the population has received at least one dose of the Covid-19 vaccine and it is unlikely 
+                Nepal will receive more vaccines from its primary source, India, in the near future provided the crisis India 
+                itself is going through. So, countries like the US could really help fight this pandemic in Nepal by donating 
+                vaccines to the Government of Nepal. This will forestall immeasurable devastation for the people of Nepal. 
+                Please sign this petition organized by Nepal Rising to urge the US Department of State to support vaccine 
+                donations to Nepal. 
+              </p>
+              <div className="spacer"></div>
+              <div className="button-container">
+              <Button variant="outline-primary" target="_blank"
                 href="https://www.change.org/p/urge-us-government-to-send-emergency-covid-19-vaccine-humanitarian-aid-to-nepal">
-                  Vaccine Petition
+                  Sign Petition
               </Button>
-              <div className="button-info">Link to sign a petition</div>
-            </Col>
-          </Row>
-          <Row>
-          </Row>
-        </Container>
+              </div>
+            </Card>
+          </Col> 
+        </Row>
+      </Container>
+      </div>
+    );
 
-        {/* Help section  */}
-        <Container className="section Homepage-help" fluid>
-          <h1 className="section-header">How you can help</h1>
-
-          <Row className="justify-content-around align-items-stretch help-cards-container">
-            <Col sm={12} md={6} lg={4}>
-              <Card body className="help-card">
-                <h3>Donate</h3>
-                <p>
-                  We have compiled a list of fundraisers trying to appeal to a larger community and allocate funds to 
-                  support Nepal in tackling and minimizing the effects of the Covid-19. These fundraisers are supporting 
-                  initiatives on the ground that are related to medical needs, food distribution, delivery of home isolation 
-                  kits among many others. We have tried to give a brief overview of each campaign. Please feel free to 
-                  scroll through and support these fundraisers to the best of your ability. Every donation counts, every 
-                  little effort adds up. 
-                </p>
-                <div className="spacer"></div>
-                <div className="button-container">
-                <Button variant="outline-primary" target="_blank"
-                  href="https://docs.google.com/spreadsheets/d/1BQZvGqM3Ao48A6lHo_U1yfkFzb8DWPPnqhExFd6X8-8/edit#gid=570437755">
-                    Donate
-                </Button></div>
-              </Card>
-            </Col>
-            <Col sm={12} md={6} lg={4}>
-              <Card body className="help-card">
-                <h3>Add to the Database</h3>
-                <p>
-                  Our volunteers have worked day and night to compile the data that we have. However, we believe there are 
-                  many more resources, campaigns, and fundraisers that need to be listed alongside. If you know of one, whether 
-                  it be resources, campaigns or any support systems, please use the form below to let us know.
-                </p>
-                <div className="spacer"></div>
-                <div className="button-container">
-                  <Button variant="outline-primary" target="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScbwDZCkG8iiacpJb5rFBH71EC3wUExG_q-D2o_mAUpLlhHGQ/viewform">
-                      Add Resource
-                  </Button>
-                </div>
-                <div className="button-container mt-3">
-                  <Button variant="outline-primary" target="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScDVTkpMDasRZEMy7zk-ALjH4ARE8AZlR5inpIc8opPbMdIHg/viewform">
-                      Suggest Changes
-                </Button>
-                </div>
-              </Card>
-            </Col> 
-            <Col sm={12} md={6} lg={4}>
-              <Card body className="help-card">
-                <h3>Sign Vaccine Petition</h3>
-                <p>
-                  Only about 4% of the population has received at least one dose of the Covid-19 vaccine and it is unlikely 
-                  Nepal will receive more vaccines from its primary source, India, in the near future provided the crisis India 
-                  itself is going through. So, countries like the US could really help fight this pandemic in Nepal by donating 
-                  vaccines to the Government of Nepal. This will forestall immeasurable devastation for the people of Nepal. 
-                  Please sign this petition organized by Nepal Rising to urge the US Department of State to support vaccine 
-                  donations to Nepal. 
-                </p>
-                <div className="spacer"></div>
-                <div className="button-container">
-                <Button variant="outline-primary" target="_blank"
-                  href="https://www.change.org/p/urge-us-government-to-send-emergency-covid-19-vaccine-humanitarian-aid-to-nepal">
-                    Sign Petition
-                </Button>
-                </div>
-              </Card>
-            </Col> 
-          </Row>
-        </Container>
-
+    const aboutElement = (
+      <div> 
         {/* About Us Section */}
         <Container className="section Homepage-about pb-5">
           <h1 className="section-header">About us</h1>
@@ -172,32 +184,59 @@ export default class App extends React.Component {
           <h3 className="section-header">Team Leads</h3>
           <TeamGallery members={this.state.team.steering}/>
         </Container>
+      </div>
+    );
 
+    return (
+      <div className="App">
+        <Router>  
+        {/* NavBar */}
+          <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar.Brand href="/">Covid Resources Nepal</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
+              <Nav className="mr-auto" className="justify-content-end">
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/about">About us</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+
+            <Switch>
+              <Route path="/about">
+                <div>{aboutElement}</div>
+              </Route>
+              <Route path="/">
+              <div>{homepageElement}</div>
+              </Route>
+            </Switch>
+        
         {/* Footer  */}
-        <footer className="footer">
-          <Container fluid> 
-            <Row className="justify-content-between">
-              <Col xs={12} md="auto">
-                &copy; Covid Resources Nepal <br />
-                Publicly gathered resources for Covid-19 <br />
-                <div onClick={(e)=>this.setState({disclaimerShow:true})} className="btn-cursor">
-                  Disclaimer
-                </div>
-                <br className="d-md-none"/>
-              </Col>
-              <Col xs={12} md="auto">
-                Contact: <br />
-                <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
-                <br />
-                <div className="d-flex justify-content-center">
-                <a href="https://facebook.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} /> </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /> </a>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </footer>
+          <footer className="footer">
+            <Container fluid> 
+              <Row className="justify-content-between">
+                <Col xs={12} md="auto">
+                  &copy; Covid Resources Nepal <br />
+                  Publicly gathered resources for Covid-19 <br />
+                  <div onClick={(e)=>this.setState({disclaimerShow:true})} className="btn-cursor">
+                    Disclaimer
+                  </div>
+                  <br className="d-md-none"/>
+                </Col>
+                <Col xs={12} md="auto">
+                  Contact: <br />
+                  <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
+                  <br />
+                  <div className="d-flex justify-content-center">
+                  <a href="https://facebook.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} /> </a>
+                  <a href="https://twitter.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /> </a>
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </footer>
+        </Router>
 
         {/* Resource Modal */}
         <Modal show={resourceShow} onHide={(e)=>this.setState({resourceShow:false})} centered>
@@ -273,7 +312,6 @@ export default class App extends React.Component {
           </ol>
         </Modal.Body>
         </Modal>
-
       </div>
     );
   }
