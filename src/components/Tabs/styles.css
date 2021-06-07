@@ -1,0 +1,22 @@
+.tab-navs{
+    display: flex;
+    justify-content: center;
+}
+
+.tab-button.active{
+    color: green;
+    font-weight: bold;
+}
+
+.tab-button{
+    cursor: pointer;
+}
+
+.sheet{
+    margin:auto;
+    width:70%;
+    border: 0;
+    height: 100%;
+    display: flex;
+    min-height: 80vh;
+}
