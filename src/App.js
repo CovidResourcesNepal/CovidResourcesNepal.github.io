@@ -11,7 +11,6 @@ import {
   Nav,
   Navbar
 } from 'react-bootstrap'
-
 import TeamGallery from './components/TeamGallery'
 
 // React router
@@ -23,13 +22,14 @@ import {
 
 // FontAwesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 
 // Stylesheets
 import './style.scss';
 import './App.css';
 
 export default class App extends React.Component {
+
   constructor() {
     super();
     this.state = {
@@ -191,15 +191,17 @@ export default class App extends React.Component {
       <div className="App">
         <Router>  
         {/* NavBar */}
-          <Navbar bg="dark" variant="dark" expand="lg">
-            <Navbar.Brand href="/">Covid Resources Nepal</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
-              <Nav className="mr-auto" className="justify-content-end">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/about">About us</Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
+          <Navbar bg="dark" variant="dark" expand="lg" id="site-navbar" fixed="top">
+            <Container>
+              <Navbar.Brand href="/">Covid Resources Nepal</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
+                <Nav className="justify-content-end">
+                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/about">About us</Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
           </Navbar>
 
             <Switch>
@@ -213,24 +215,23 @@ export default class App extends React.Component {
         
         {/* Footer  */}
           <footer className="footer">
-            <Container fluid> 
+            <Container> 
               <Row className="justify-content-between">
-                <Col xs={12} md="auto">
-                  &copy; Covid Resources Nepal <br />
-                  Publicly gathered resources for Covid-19 <br />
-                  <div onClick={(e)=>this.setState({disclaimerShow:true})} className="btn-cursor">
+                <Col xs={12} md={6} className="text-left">
+                  <h5 className="footer-title">Covid Resources Nepal</h5>
+                  <p>A common source for resources, donation campaigns, support systems, and Nepal’s response to COVID-19 in one place</p>
+                  &copy; CovidResourcesNepal |&nbsp;
+                  <span onClick={(e)=>this.setState({disclaimerShow:true})} className="btn-cursor">
                     Disclaimer
-                  </div>
+                  </span>
                   <br className="d-md-none"/>
                 </Col>
-                <Col xs={12} md="auto">
-                  Contact: <br />
-                  <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
+                <Col xs={12} md={6} className="text-right">
+                <h5 className="footer-title">Contact:</h5>
+                  Email: <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
                   <br />
-                  <div className="d-flex justify-content-center">
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} /> </a>
-                  <a href="https://twitter.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /> </a>
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
+                  <div className="d-flex justify-content-end social-media-links">
+                    <a href="https://www.instagram.com/covidresourcesnepal/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
                   </div>
                 </Col>
               </Row>

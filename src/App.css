@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+#site-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 
 .section {
   padding-top: 10vh;
@@ -30,8 +37,10 @@
   align-items: center;
   justify-content: center;
   color: #eee;
-  min-height: 100vh;
+  min-height: 100vh; /* --vh is set in app.js and helps with full height in mobile devices */
+  position: relative;
 }
+
 /* For the top background */
 .Homepage-bg::after, .Homepage-bg::before {
   content: '';
@@ -130,7 +139,15 @@ p#hero-subtitle {
 
 .footer a {
   color: white;
-  padding-right: 10px;
+}
+
+.footer h5 {
+  color: white;
+}
+
+.social-media-links a {
+  margin-left: 10px;
+  font-size: 1.5em;
 }
 
 .btn-cursor{
