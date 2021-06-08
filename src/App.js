@@ -12,12 +12,15 @@ import {
   Navbar
 } from 'react-bootstrap'
 import TeamGallery from './components/TeamGallery'
+import Resources from './components/Resources/Resources'
+import { LinkContainer } from 'react-router-bootstrap'
 
 // React router
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
 } from "react-router-dom";
 
 // FontAwesome Icons
@@ -65,16 +68,19 @@ export default class App extends React.Component {
 
         <Row>
           <Col>
-            <Button variant="primary" size="lg" target="_blank" 
-              href="https://docs.google.com/spreadsheets/d/1BQZvGqM3Ao48A6lHo_U1yfkFzb8DWPPnqhExFd6X8-8/edit#gid=570437755">
-                Fundraisers
-            </Button>
+            <LinkContainer to="/resources#fundraisers">
+              <Button variant="primary" size="lg" target="_blank">
+                  Fundraisers
+              </Button>
+            </LinkContainer>
             <div className="button-info">List of campaigns seeking donations</div>
           </Col>
           <Col>
-            <Button variant="primary" size="lg" target="_blank" onClick={(e)=>this.setState({resourceShow:true})}>
-                Resources
-            </Button>
+            <LinkContainer to="/resources#resources">
+              <Button variant="primary" size="lg" target="_blank">
+                  Resources
+              </Button>
+            </LinkContainer>
             <div className="button-info">List of available resources <br/> (medical, food, mental health, others)</div>
           </Col>
           <Col>
@@ -107,10 +113,12 @@ export default class App extends React.Component {
               </p>
               <div className="spacer"></div>
               <div className="button-container">
-              <Button variant="outline-primary" target="_blank"
-                href="https://docs.google.com/spreadsheets/d/1BQZvGqM3Ao48A6lHo_U1yfkFzb8DWPPnqhExFd6X8-8/edit#gid=570437755">
-                  Donate
-              </Button></div>
+                <LinkContainer to="/resources#fundraisers">
+                  <Button variant="outline-primary" target="_blank">
+                      Donate
+                  </Button>
+                </LinkContainer>
+              </div>
             </Card>
           </Col>
           <Col sm={12} md={6} lg={4}>
@@ -193,12 +201,12 @@ export default class App extends React.Component {
         {/* NavBar */}
           <Navbar bg="dark" variant="dark" expand="lg" id="site-navbar" fixed="top">
             <Container>
-              <Navbar.Brand href="/">Covid Resources Nepal</Navbar.Brand>
+              <Navbar.Brand as={Link} to="/">Covid Resources Nepal</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
                 <Nav className="justify-content-end">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/about">About us</Nav.Link>
+                  <Nav.Link as={Link} to="/">Home</Nav.Link>
+                  <Nav.Link as={Link} to="/about">About Us</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -207,6 +215,9 @@ export default class App extends React.Component {
             <Switch>
               <Route path="/about">
                 <div>{aboutElement}</div>
+              </Route>
+              <Route path="/resources">
+                <Resources/>
               </Route>
               <Route path="/">
               <div>{homepageElement}</div>
@@ -217,7 +228,7 @@ export default class App extends React.Component {
           <footer className="footer">
             <Container> 
               <Row className="justify-content-between">
-                <Col xs={12} md={6} className="text-left">
+                <Col xs={12} md={6} className="text-md-left">
                   <h5 className="footer-title">Covid Resources Nepal</h5>
                   <p>A common source for resources, donation campaigns, support systems, and Nepal’s response to COVID-19 in one place</p>
                   &copy; CovidResourcesNepal |&nbsp;
@@ -226,11 +237,11 @@ export default class App extends React.Component {
                   </span>
                   <br className="d-md-none"/>
                 </Col>
-                <Col xs={12} md={6} className="text-right">
+                <Col xs={12} md={6} className="text-md-right">
                 <h5 className="footer-title">Contact:</h5>
                   Email: <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
-                  <br />
-                  <div className="d-flex justify-content-end social-media-links">
+                  
+                  <div className="d-flex justify-content-center justify-content-md-end social-media-links">
                     <a href="https://www.instagram.com/covidresourcesnepal/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
                   </div>
                 </Col>
