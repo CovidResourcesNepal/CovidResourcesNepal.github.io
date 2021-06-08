@@ -1,14 +1,18 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import { Tab, Nav, Container } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import './styles.css'
 
-const Tabs = () => {
+const Resources = () => {
+    const location = useLocation();
+    const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
+
     return(
-        <Container>
-            <Tab.Container defaultActiveKey="fundraisers">
+        <Container className="section">
+            <Tab.Container defaultActiveKey={initialTab}>
                 <Nav variant="tabs" className="tab-navs primary">
                     <Nav.Link as="div" eventKey="fundraisers" className="tab-button">
                         Fundraisers
@@ -63,4 +67,4 @@ const Tabs = () => {
     )
 }
 
-export default Tabs;
+export default Resources;
