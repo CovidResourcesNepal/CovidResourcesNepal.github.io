@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import TeamGallery from '../components/TeamGallery'
+import TeamGallery from '../../components/TeamGallery'
+import './style.css'
 
 class About extends React.Component {
   constructor() {
@@ -28,7 +29,7 @@ class About extends React.Component {
         <Container className="section Homepage-about pb-5">
           <h1 className="section-header">About us</h1>
 
-          <div className="Homepage-about-paragraph">
+          <div className="about-paragraph">
             We are a group of Nepali students and young professionals trying to integrate all the resources dedicated to Nepal’s
             response to Covid-19 in one place. We hope that this platform can make the search for various types of resources and 
             impactful fundraisers effective, including those people/organizations that need to address emergency situations in 

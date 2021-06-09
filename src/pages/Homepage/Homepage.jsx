@@ -6,6 +6,7 @@ import {
   Card,
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import './style.css'
 
 function Homepage() {
   return (
