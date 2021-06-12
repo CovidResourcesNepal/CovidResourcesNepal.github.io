@@ -6,9 +6,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import './styles.css'
 
+import Fundraisers from '../../Fundraisers'
+import Carousel from 'react-bootstrap/Carousel'
+import {Row, Col} from 'react-bootstrap' 
+
 const Resources = () => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
+
+  const gallery = Fundraisers.map((fundraiser) => {
+    if (fundraiser.platform === 'gofundme') {
+      return (
+        <Col>
+        <embed height="530px" width="100%" src={`${fundraiser.url.split('?')[0]}/widget/large/`} type="text/html"></embed>
+        </Col>
+      );
+    }
+    else {
+      return (
+        <Carousel.Item>
+          <div>Error</div>
+        </Carousel.Item>
+      );
+    }
+  });
+
+  // Placeholder for actual api call
+  fetch('data/team.json', {
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  }).then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
 
   return(
     <Container className="section">
@@ -63,6 +94,13 @@ const Resources = () => {
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
+
+      {/* Placeholder for gallery */}
+      <Container>
+        <Row xs={1} sm={2} lg={3}>
+        {gallery}
+        </Row>
+      </Container>
     </Container>
   )
 }
