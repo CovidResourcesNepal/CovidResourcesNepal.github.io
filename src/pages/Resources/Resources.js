@@ -6,40 +6,63 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import './styles.css'
 
-import Fundraisers from '../../Fundraisers'
-import Carousel from 'react-bootstrap/Carousel'
+import Fundraisers from './Fundraisers'
 import {Row, Col} from 'react-bootstrap' 
 
 const Resources = () => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
 
-  const gallery = Fundraisers.map((fundraiser) => {
-    if (fundraiser.platform === 'gofundme') {
-      return (
-        <Col>
-        <embed height="530px" width="100%" src={`${fundraiser.url.split('?')[0]}/widget/large/`} type="text/html"></embed>
-        </Col>
-      );
-    }
-    else {
-      return (
-        <Carousel.Item>
-          <div>Error</div>
-        </Carousel.Item>
-      );
-    }
-  });
+  // Getting fundraisers json from local file for now
+  // TODO: Get from api call
+  let fundraisers = Fundraisers
 
   // Placeholder for actual api call
-  fetch('data/team.json', {
-    headers : { 
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  }).then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+  // fetch('api/fundraisers', {
+  //   headers : { 
+  //     'Content-Type': 'application/json',
+  //     'Accept': 'application/json'
+  //   }
+  // }).then(response => response.json())
+  //   .then(data => console.log(data))
+  //   .catch(error => console.log(error))
+
+  // Array of category names as strings
+  const categories = [... new Set(fundraisers.map (x => x.category))]
+
+  // Nested array of fundraiser objects by category
+  const byCategory = categories.map((category) => {
+    return fundraisers.filter(f => f.category === category)
+  })
+
+  /**
+   * Returns Cols of fundraiser embeds from array of fundraiser objs
+   */
+  const renderCategory = (fundraisers) => {
+    return fundraisers.map((fundraiser) => {
+      // GoFundMe embeds only work on links with /f/
+      if (fundraiser.platform === 'gofundme' && fundraiser.url.includes('/f/')) {
+        return (
+          <Col>
+          {/* Array.split to clean url of unnecessary params */}
+          <embed height="530px" width="100%" src={`${fundraiser.url.split('?')[0]}/widget/large/`} type="text/html"></embed>
+          </Col>
+        );
+      }
+    });
+  }
+
+  // Gallery of embeds by cateogry
+  const gallery = byCategory.map((fundraiserArray) => {
+    return (
+      <div>
+        <h2 className="text-left">{fundraiserArray[0].category}</h2>
+        <Row xs={1} sm={2} lg={3}>
+          {renderCategory(fundraiserArray)}
+        </Row>
+      </div>
+    );
+  });
 
   return(
     <Container className="section">
@@ -55,6 +78,10 @@ const Resources = () => {
         <Tab.Content>
           <Tab.Pane eventKey="fundraisers" title="Fundraisers">
             <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQv_zDW2SIhkyb3W0yFsAFJxGD1Mmny2U1vFjfN6BTQK6phr-gfM6wRR538UBeVr8OTXsBdectTsQHf/pubhtml?widget=true&amp;headers=false"></iframe>
+            <Container>
+              <h1>Fundraisers</h1>
+              {gallery}
+            </Container>
           </Tab.Pane>
           <Tab.Pane eventKey="resources" title="Resources">
             <Tab.Container defaultActiveKey="general-info">
@@ -94,13 +121,6 @@ const Resources = () => {
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
-
-      {/* Placeholder for gallery */}
-      <Container>
-        <Row xs={1} sm={2} lg={3}>
-        {gallery}
-        </Row>
-      </Container>
     </Container>
   )
 }
