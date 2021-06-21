@@ -6,18 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import './styles.css'
 
-import {Row, Col} from 'react-bootstrap' 
+import { Row, Col, Card, CardDeck, CardGroup, CardColumns } from 'react-bootstrap'
 
 const Resources = () => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
 
-  const [fundraisers, setFundraisers] =  useState([]);
+  const [fundraisers, setFundraisers] = useState([]);
 
   // Simulating componentDidMount
   useEffect(() => {
     fetch('https://covidresources-316406.ue.r.appspot.com/api/fundraisers', {
-      headers : { 
+      headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
@@ -28,7 +28,7 @@ const Resources = () => {
 
 
   // Array of category names as strings
-  const categories = [... new Set(fundraisers.map (x => x.category))]
+  const categories = [... new Set(fundraisers.map(x => x.category))]
 
   // Nested array of fundraiser objects by category
   const byCategory = categories.map((category) => {
@@ -41,14 +41,23 @@ const Resources = () => {
   const renderCategory = (fundraisers) => {
     return fundraisers.map((fundraiser) => {
       // GoFundMe embeds only work on links with /f/
-      if (fundraiser.platform === 'gofundme' && fundraiser.url.includes('/f/')) {
+      // if (fundraiser.platform === 'gofundme' && fundraiser.url.includes('/f/')) {
         return (
           <Col>
-          {/* Array.split to clean url of unnecessary params */}
-          <embed height="530px" width="100%" src={`${fundraiser.url.split('?')[0]}/widget/large/`} type="text/html"></embed>
+            {/* <embed height="530px" width="100%" src={`${fundraiser.url.split('?')[0]}/widget/large/`} type="text/html"></embed> */}
+            <Card>
+              <Card.Body>
+                <Card.Title>{fundraiser.name}</Card.Title>
+                <Card.Text>
+                <div>{fundraiser.currency} {fundraiser.fund_raised} / {fundraiser.fundraising_goal}</div> <br />
+                  Goal {fundraiser.stated_goal}
+                </Card.Text>
+                <a href={fundraiser.url} target="_blank" className="btn btn-primary stretched-link">Donate</a>
+              </Card.Body>
+            </Card>
           </Col>
         );
-      }
+      // }
     });
   }
 
@@ -65,7 +74,7 @@ const Resources = () => {
   });
 
 
-  return(
+  return (
     <Container className="section">
       <Tab.Container defaultActiveKey={initialTab}>
         <Nav variant="tabs" className="tab-navs primary">
