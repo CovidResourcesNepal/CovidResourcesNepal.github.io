@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Tab, Nav, Container } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
@@ -6,26 +6,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import './styles.css'
 
-import Fundraisers from './Fundraisers'
 import {Row, Col} from 'react-bootstrap' 
 
 const Resources = () => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
 
-  // Getting fundraisers json from local file for now
-  // TODO: Get from api call
-  let fundraisers = Fundraisers
+  const [fundraisers, setFundraisers] =  useState([]);
 
-  // Placeholder for actual api call
-  // fetch('api/fundraisers', {
-  //   headers : { 
-  //     'Content-Type': 'application/json',
-  //     'Accept': 'application/json'
-  //   }
-  // }).then(response => response.json())
-  //   .then(data => console.log(data))
-  //   .catch(error => console.log(error))
+  // Simulating componentDidMount
+  useEffect(() => {
+    fetch('https://covidresources-316406.ue.r.appspot.com/api/fundraisers', {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then(response => response.json())
+      .then(data => setFundraisers(data))
+      .catch(error => console.log(error))
+  }, []);
+
 
   // Array of category names as strings
   const categories = [... new Set(fundraisers.map (x => x.category))]
@@ -63,6 +63,7 @@ const Resources = () => {
       </div>
     );
   });
+
 
   return(
     <Container className="section">
