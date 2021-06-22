@@ -68,3 +68,23 @@
   margin: 8px 40px 8px 40px;
 }
 
+
+
+/* Fundraisers CSS */
+.fundraiser-card {
+  font-size: 0.85em;
+  text-align: left;
+}
+.fundraiser-card .VictoryContainer {
+  max-width: 120px;
+  min-width: 120px;
+  margin: auto;
+}
+
+@media (max-width: 400px) {
+  .fundraiser-card .VictoryContainer {
+    max-width: unset;
+    min-width: unset;
+    margin: auto;
+  }
+}

@@ -30,7 +30,7 @@ const Resources = () => {
 
 
   // Array of category names as strings
-  const categories = [... new Set(fundraisers.map(x => x.category))]
+  const categories = [...new Set(fundraisers.map(x => x.category))]
 
   // Nested array of fundraiser objects by category
   const byCategory = categories.map((category) => {
@@ -47,31 +47,45 @@ const Resources = () => {
           ? "$"
           : (fundraiser.currency === "GBP" ? "£" : fundraiser.currency))
       return (
-        <Col>
-          <Card className="flex-sm-column flex-lg-row align-items-center">
-            <strong style={{ flex: 0.2 }}>
-              {fundraiser.name}
-            </strong>
-            <div style={{ flex: 0.3 }}>
-              <VictoryPie
-                padAngle={0}
-                // used to hide labels
-                labelComponent={<span />}
-                innerRadius={20}
-                radius={25}
-                width={100} height={70}
-                data={[{ 'key': "", 'y': fundraiser.fund_raised }, { 'key': "", 'y': (fundraiser.fundraising_goal - fundraiser.fund_raised) }]}
-                colorScale={["#19B3A6", "#EEEEEE"]}
-              />
-              <div>{curSymbol}{fundraiser.fund_raised} out of {curSymbol}{fundraiser.fundraising_goal} raised</div>
+          <Card className="flex-row align-items-center fundraiser-card py-3 px-lg-3 m-2 flex-wrap" key={fundraiser.name}>
+            <Col xs lg={2}>
+              <h6>
+                {fundraiser.name}
+              </h6>
+              <p className="d-lg-none font-italic">
+              {curSymbol}{fundraiser.fund_raised} / {curSymbol}{fundraiser.fundraising_goal} raised
+              </p>
+            </Col>
+            <Col xs="auto" lg={3}>
+              { fundraiser.fundraising_goal &&
+                <div>
+                  <VictoryPie
+                    padAngle={0}
+                    // used to hide labels
+                    labelComponent={<svg width="100%" height="100%"></svg>}
+                    innerRadius={20}
+                    radius={30}
+                    width={80}
+                    height={80}
+                    data={[{ 'key': "", 'y': fundraiser.fund_raised }, { 'key': "", 'y': (fundraiser.fundraising_goal - fundraiser.fund_raised) }]}
+                    colorScale={["#19B3A6", "#EEEEEE"]}
+                  />
+                  <div className="text-center font-italic d-none d-lg-block">{curSymbol}{fundraiser.fund_raised} / {curSymbol}{fundraiser.fundraising_goal} raised</div>
+                </div>
+              }
+            </Col>
+            <Col xs={12} lg>
+              <div>
+                <strong>Goal</strong>
+                <p>{fundraiser.stated_goal}</p>
+              </div>
+            </Col>
+            <Col xs={12} lg="auto">
+            <div className="text-center">
+              <a href={fundraiser.url} target="_blank" className="btn btn-primary" rel="noreferrer">Donate</a>
             </div>
-            <div style={{ flex: 0.4 }} className="p-2">Goal{fundraiser.stated_goal}</div>
-            <div style={{ flex: 0.1 }}>
-              <a href={fundraiser.url} target="_blank" className="btn btn-primary stretched-link">Donate</a>
-            </div>
+            </Col>
           </Card>
-          <br />
-        </Col>
       );
     });
   }
@@ -102,9 +116,7 @@ const Resources = () => {
         </Nav>
         <Tab.Content>
           <Tab.Pane eventKey="fundraisers" title="Fundraisers">
-            <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQv_zDW2SIhkyb3W0yFsAFJxGD1Mmny2U1vFjfN6BTQK6phr-gfM6wRR538UBeVr8OTXsBdectTsQHf/pubhtml?widget=true&amp;headers=false"></iframe>
-            <Container>
-              <h1>Fundraisers</h1>
+            <Container className="py-5">
               {gallery}
             </Container>
           </Tab.Pane>
