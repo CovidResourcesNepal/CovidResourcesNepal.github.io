@@ -10,7 +10,7 @@ import { Row, Col, Card} from 'react-bootstrap'
 
 import { VictoryPie} from 'victory';
 
-const Resources = () => {
+const Resources = ({t}) => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
 
@@ -108,10 +108,10 @@ const Resources = () => {
       <Tab.Container defaultActiveKey={initialTab}>
         <Nav variant="tabs" className="tab-navs primary">
           <Nav.Link as="div" eventKey="fundraisers" className="tab-button">
-            Fundraisers
+          {t('home.fundraisers')}
           </Nav.Link>
           <Nav.Link as="div" eventKey="resources" className="tab-button">
-            Resources
+            {t('home.resources')}
           </Nav.Link>
         </Nav>
         <Tab.Content>
@@ -124,19 +124,19 @@ const Resources = () => {
             <Tab.Container defaultActiveKey="general-info">
               <Nav className="tab-navs secondary">
                 <Nav.Link as="div" eventKey="general-info" className="tab-button">
-                  General Info
+                  {t('resources.general-info')}
                 </Nav.Link>
                 <Nav.Link as="div" eventKey="helpline" className="tab-button">
-                  Helpline
+                  {t('resources.helpline')}
                 </Nav.Link>
                 <Nav.Link as="div" eventKey="mental-health" className="tab-button">
-                  Mental Health
+                  {t('resources.mental-health')}
                 </Nav.Link>
                 <Nav.Link as="div" eventKey="food" className="tab-button">
-                  Food
+                  {t('resources.food')}
                 </Nav.Link>
                 <Button variant="outline-primary" target="_blank" href="https://www.covidconnectnp.org/">
-                  Medical Resources
+                  {t('resources.medical-resources')}
                   <FontAwesomeIcon icon={faExternalLinkAlt} size="xs" className="ml-2" />
                 </Button>
               </Nav>

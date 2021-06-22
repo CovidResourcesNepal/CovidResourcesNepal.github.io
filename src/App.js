@@ -34,7 +34,7 @@ function Page() {
               <About t={t}/>
             </Route>
             <Route path="/resources">
-              <Resources />
+              <Resources t={t}/>
             </Route>
             <Route path="/">
               <Homepage t={t}/>

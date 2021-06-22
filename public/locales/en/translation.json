@@ -30,5 +30,12 @@
         "about-us": "We are a group of Nepali students and young professionals trying to integrate all the resources dedicated to Nepal’s response to Covid-19 in one place. We hope that this platform can make the search for various types of resources and impactful fundraisers effective, including those people/organizations that need to address emergency situations in a short amount of time.",
         "core": "Core Team",
         "team-leads": "Team Leads"
+    },
+    "resources": {
+        "general-info": "General Info",
+        "helpline": "Helpline",
+        "mental-health": "Mental Health",
+        "food": "Food",
+        "medical-resources": "Medical Resources"
     }
 }
