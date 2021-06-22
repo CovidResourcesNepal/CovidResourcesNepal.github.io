@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Tab, Nav, Container } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
@@ -6,11 +6,104 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import './styles.css'
 
+import { Row, Col, Card} from 'react-bootstrap'
+
+import { VictoryPie} from 'victory';
+
 const Resources = () => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
 
-  return(
+  const [fundraisers, setFundraisers] = useState([]);
+
+  // Simulating componentDidMount
+  useEffect(() => {
+    fetch('https://covidresources-316406.ue.r.appspot.com/api/fundraisers', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then(response => response.json())
+      .then(data => setFundraisers(data))
+      .catch(error => console.log(error))
+  }, []);
+
+
+  // Array of category names as strings
+  const categories = [...new Set(fundraisers.map(x => x.category))]
+
+  // Nested array of fundraiser objects by category
+  const byCategory = categories.map((category) => {
+    return fundraisers.filter(f => f.category === category)
+  })
+
+  /**
+   * Returns Cols of fundraiser cards from array of fundraiser objs
+   */
+  const renderCategory = (fundraisers) => {
+    return fundraisers.map((fundraiser) => {
+      let curSymbol = (
+        fundraiser.currency === "USD"
+          ? "$"
+          : (fundraiser.currency === "GBP" ? "£" : fundraiser.currency))
+      return (
+          <Card className="flex-row align-items-center fundraiser-card py-3 px-lg-3 m-2 flex-wrap" key={fundraiser.name}>
+            <Col xs lg={2}>
+              <h6>
+                {fundraiser.name}
+              </h6>
+              <p className="d-lg-none font-italic">
+              {curSymbol}{fundraiser.fund_raised} / {curSymbol}{fundraiser.fundraising_goal} raised
+              </p>
+            </Col>
+            <Col xs="auto" lg={3}>
+              { fundraiser.fundraising_goal &&
+                <div>
+                  <VictoryPie
+                    padAngle={0}
+                    // used to hide labels
+                    labelComponent={<svg width="100%" height="100%"></svg>}
+                    innerRadius={20}
+                    radius={30}
+                    width={80}
+                    height={80}
+                    data={[{ 'key': "", 'y': fundraiser.fund_raised }, { 'key': "", 'y': (fundraiser.fundraising_goal - fundraiser.fund_raised) }]}
+                    colorScale={["#19B3A6", "#EEEEEE"]}
+                  />
+                  <div className="text-center font-italic d-none d-lg-block">{curSymbol}{fundraiser.fund_raised} / {curSymbol}{fundraiser.fundraising_goal} raised</div>
+                </div>
+              }
+            </Col>
+            <Col xs={12} lg>
+              <div>
+                <strong>Goal</strong>
+                <p>{fundraiser.stated_goal}</p>
+              </div>
+            </Col>
+            <Col xs={12} lg="auto">
+            <div className="text-center">
+              <a href={fundraiser.url} target="_blank" className="btn btn-primary" rel="noreferrer">Donate</a>
+            </div>
+            </Col>
+          </Card>
+      );
+    });
+  }
+
+  // Gallery of cards by cateogry
+  const gallery = byCategory.map((fundraiserArray) => {
+    return (
+      <div>
+        <h2 className="text-left">{fundraiserArray[0].category}</h2>
+        <Row xs={1} sm={1} lg={1}>
+          {renderCategory(fundraiserArray)}
+        </Row>
+      </div>
+    );
+  });
+
+
+  return (
     <Container className="section">
       <Tab.Container defaultActiveKey={initialTab}>
         <Nav variant="tabs" className="tab-navs primary">
@@ -23,7 +116,9 @@ const Resources = () => {
         </Nav>
         <Tab.Content>
           <Tab.Pane eventKey="fundraisers" title="Fundraisers">
-            <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQv_zDW2SIhkyb3W0yFsAFJxGD1Mmny2U1vFjfN6BTQK6phr-gfM6wRR538UBeVr8OTXsBdectTsQHf/pubhtml?widget=true&amp;headers=false"></iframe>
+            <Container className="py-5">
+              {gallery}
+            </Container>
           </Tab.Pane>
           <Tab.Pane eventKey="resources" title="Resources">
             <Tab.Container defaultActiveKey="general-info">
