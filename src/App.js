@@ -39,7 +39,7 @@ function Page() {
             </Route>
           </Switch>
         </main>
-        <Footer/>
+        <Footer t={t}/>
       </Router>
     </div>
   );
