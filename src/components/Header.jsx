@@ -17,7 +17,7 @@ function Header({changeLng, lng}) {
           <Nav className="justify-content-end">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/about">About Us</Nav.Link>
-            <ToggleButtonGroup type="radio" defaultValue={lng=="en" ? 1 : 2} name="options" className="language-tog">
+            <ToggleButtonGroup type="radio" defaultValue={lng==="en" ? 1 : 2} name="options" className="language-tog">
               <ToggleButton value={1} id="en" variant="outline-secondary" onClick={() => changeLng("en")}>
                 en
               </ToggleButton>

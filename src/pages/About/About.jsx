@@ -6,7 +6,7 @@ import TeamEN from "./teamEN.json"
 import TeamNP from "./teamNP.json"
 
 function About({t, lng}) {
-  const team = lng == "en" ? TeamEN : TeamNP
+  const team = lng === "en" ? TeamEN : TeamNP
   return (
     <>
       <Container className="section Homepage-about pb-5">
