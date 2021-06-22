@@ -8,6 +8,8 @@ import './styles.css'
 
 import { Row, Col, Card, CardDeck, CardGroup, CardColumns } from 'react-bootstrap'
 
+import { VictoryPie, VictoryTheme } from 'victory';
+
 const Resources = () => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
@@ -40,24 +42,37 @@ const Resources = () => {
    */
   const renderCategory = (fundraisers) => {
     return fundraisers.map((fundraiser) => {
-      // GoFundMe embeds only work on links with /f/
-      // if (fundraiser.platform === 'gofundme' && fundraiser.url.includes('/f/')) {
-        return (
-          <Col>
-            {/* <embed height="530px" width="100%" src={`${fundraiser.url.split('?')[0]}/widget/large/`} type="text/html"></embed> */}
-            <Card>
-              <Card.Body>
-                <Card.Title>{fundraiser.name}</Card.Title>
-                <Card.Text>
-                <div>{fundraiser.currency} {fundraiser.fund_raised} / {fundraiser.fundraising_goal}</div> <br />
-                  Goal {fundraiser.stated_goal}
-                </Card.Text>
-                <a href={fundraiser.url} target="_blank" className="btn btn-primary stretched-link">Donate</a>
-              </Card.Body>
-            </Card>
-          </Col>
-        );
-      // }
+      let curSymbol = (
+                        fundraiser.currency === "USD" 
+                        ? "$"
+                        : (fundraiser.currency === "GBP" ? "£" : fundraiser.currency))
+      return (
+        <Col>
+          <Card className="flex-sm-column flex-lg-row align-items-center">
+            <strong style={{ flex: 0.2 }}>
+             {fundraiser.name}
+            </strong>
+            <div style={{ flex: 0.3 }}>
+              <VictoryPie
+                padAngle={0}
+                // used to hide labels
+                labelComponent={<span />}
+                innerRadius={20}
+                radius={25}
+                width={100} height={70}
+                data={[{ 'key': "", 'y': fundraiser.fund_raised}, { 'key': "", 'y': (fundraiser.fundraising_goal - fundraiser.fund_raised) }]}
+                colorScale={["#19B3A6", "#EEEEEE"]}
+              />
+              <div>{curSymbol}{fundraiser.fund_raised} out of {curSymbol}{fundraiser.fundraising_goal} raised</div>
+            </div>
+            <div style={{ flex: 0.4 }} className="p-2">Goal{fundraiser.stated_goal}</div>
+            <div style={{ flex: 0.1 }}>
+              <a href={fundraiser.url} target="_blank" className="btn btn-primary stretched-link">Donate</a>
+            </div>
+          </Card>
+          <br />
+        </Col>
+      );
     });
   }
 
@@ -66,7 +81,7 @@ const Resources = () => {
     return (
       <div>
         <h2 className="text-left">{fundraiserArray[0].category}</h2>
-        <Row xs={1} sm={2} lg={3}>
+        <Row xs={1} sm={1} lg={1}>
           {renderCategory(fundraiserArray)}
         </Row>
       </div>
