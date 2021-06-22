@@ -23,7 +23,6 @@ function Page() {
   };
 
 
-
   return (
     <div className="App">
       <Router>
@@ -31,7 +30,7 @@ function Page() {
         <main>
           <Switch>
             <Route path="/about">
-              <About t={t}/>
+              <About t={t} lng={currLanguage}/>
             </Route>
             <Route path="/resources">
               <Resources t={t}/>
@@ -41,7 +40,7 @@ function Page() {
             </Route>
           </Switch>
         </main>
-        <Footer t={t} lng={currLanguage}/>
+        <Footer t={t}/>
       </Router>
     </div>
   );
