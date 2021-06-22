@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import './styles.css'
 
-import { Row, Col, Card, CardDeck, CardGroup, CardColumns } from 'react-bootstrap'
+import { Row, Col, Card} from 'react-bootstrap'
 
-import { VictoryPie, VictoryTheme } from 'victory';
+import { VictoryPie} from 'victory';
 
 const Resources = () => {
   const location = useLocation();
@@ -38,19 +38,19 @@ const Resources = () => {
   })
 
   /**
-   * Returns Cols of fundraiser embeds from array of fundraiser objs
+   * Returns Cols of fundraiser cards from array of fundraiser objs
    */
   const renderCategory = (fundraisers) => {
     return fundraisers.map((fundraiser) => {
       let curSymbol = (
-                        fundraiser.currency === "USD" 
-                        ? "$"
-                        : (fundraiser.currency === "GBP" ? "£" : fundraiser.currency))
+        fundraiser.currency === "USD"
+          ? "$"
+          : (fundraiser.currency === "GBP" ? "£" : fundraiser.currency))
       return (
         <Col>
           <Card className="flex-sm-column flex-lg-row align-items-center">
             <strong style={{ flex: 0.2 }}>
-             {fundraiser.name}
+              {fundraiser.name}
             </strong>
             <div style={{ flex: 0.3 }}>
               <VictoryPie
@@ -60,7 +60,7 @@ const Resources = () => {
                 innerRadius={20}
                 radius={25}
                 width={100} height={70}
-                data={[{ 'key': "", 'y': fundraiser.fund_raised}, { 'key': "", 'y': (fundraiser.fundraising_goal - fundraiser.fund_raised) }]}
+                data={[{ 'key': "", 'y': fundraiser.fund_raised }, { 'key': "", 'y': (fundraiser.fundraising_goal - fundraiser.fund_raised) }]}
                 colorScale={["#19B3A6", "#EEEEEE"]}
               />
               <div>{curSymbol}{fundraiser.fund_raised} out of {curSymbol}{fundraiser.fundraising_goal} raised</div>
@@ -76,7 +76,7 @@ const Resources = () => {
     });
   }
 
-  // Gallery of embeds by cateogry
+  // Gallery of cards by cateogry
   const gallery = byCategory.map((fundraiserArray) => {
     return (
       <div>
