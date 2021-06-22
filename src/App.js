@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,13 +13,19 @@ import About from './pages/About'
 // Stylesheets
 import './style.scss';
 import './App.css';
+import { useTranslation } from 'react-i18next';
 
-function App() {
+function Page() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <div className="App">
       <Router>
-        <Header/>
-
+        <Header changeLng={changeLanguage} lng={i18n.language}/>
         <main>
           <Switch>
             <Route path="/about">
@@ -29,15 +35,21 @@ function App() {
               <Resources />
             </Route>
             <Route path="/">
-              <Homepage />
+              <Homepage t={t}/>
             </Route>
           </Switch>
         </main>
-        
         <Footer/>
       </Router>
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Suspense fallback={<div>Loading... </div>}>
+      <Page />
+    </Suspense>
+  );
+}
+
