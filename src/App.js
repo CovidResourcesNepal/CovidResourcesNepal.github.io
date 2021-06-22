@@ -17,19 +17,21 @@ import { useTranslation } from 'react-i18next';
 
 function Page() {
   const { t, i18n } = useTranslation();
-
+  const currLanguage = i18n.language
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
+
+
   return (
     <div className="App">
       <Router>
-        <Header changeLng={changeLanguage} lng={i18n.language}/>
+        <Header changeLng={changeLanguage} lng={currLanguage}/>
         <main>
           <Switch>
             <Route path="/about">
-              <About />
+              <About t={t}/>
             </Route>
             <Route path="/resources">
               <Resources />
@@ -39,7 +41,7 @@ function Page() {
             </Route>
           </Switch>
         </main>
-        <Footer t={t}/>
+        <Footer t={t} lng={currLanguage}/>
       </Router>
     </div>
   );
