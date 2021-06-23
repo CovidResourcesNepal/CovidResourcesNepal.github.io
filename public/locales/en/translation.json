@@ -25,6 +25,14 @@
         "contact": "Contact",
         "email": "Email"
     },
+    "disclaimer": {
+        "title": "Disclaimers",
+        "disclaimers": [
+            "Please note that the information curated here are gathered publicly and we do not own, operate or control the helpline numbers or apps listed here. We try our best to verify the information but cannot make recommendations or guarantee any advice you might receive from these sources.",
+            "If you are a professional or part of an organization offering services for free/at subsidized rates or know someone who does and want to get added to this list, please use the \"Add to our database\" link on our website.",
+            "We are continuously updating this list and if you have any information/suggestion that does not fall under #2 above,  please email us at <0>covidresourcesnepal@gmail.com</0> with the subject line \"Name of Category for the Information\" For eg: \"Suggestion: Food Resources\""
+        ]
+    },
     "about": {
         "title": "About us",
         "about-us": "We are a group of Nepali students and young professionals trying to integrate all the resources dedicated to Nepal’s response to Covid-19 in one place. We hope that this platform can make the search for various types of resources and impactful fundraisers effective, including those people/organizations that need to address emergency situations in a short amount of time.",

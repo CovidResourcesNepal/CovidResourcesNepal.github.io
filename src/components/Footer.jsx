@@ -8,6 +8,7 @@ import {
 // FontAwesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { Trans } from 'react-i18next'
 
 function Footer({t}) {
   const [disclaimerShow, setDisclaimerShow] = useState(false)
@@ -38,24 +39,26 @@ function Footer({t}) {
       {/* Disclaimer Modal */}
       <Modal show={disclaimerShow} onHide={(e)=>setDisclaimerShow(false)} centered size="lg">
         <Modal.Header closeButton>
-          <Modal.Title>Disclaimers</Modal.Title>
+          <Modal.Title>{t('disclaimer.title')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <ol>
+            <li>{t('disclaimer.disclaimers.0')}</li>
+            <li>{t('disclaimer.disclaimers.1')}</li>
             <li>
-              Please note that the information curated here are gathered publicly and we do not own, operate or control the 
-              helpline numbers or apps listed here. We try our best to verify the information but cannot make recommendations 
-              or guarantee any advice you might receive from these sources. 
+              {/* <Trans i18nKey="disclaimer.disclaimer.2">
+                <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
+              </Trans> */}
+              <Trans
+                i18nKey="disclaimer.disclaimers.2" // optional -> fallbacks to defaults if not provided
+                components={[<a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>]}
+              />
             </li>
-            <li>
-              If you are a professional or part of an organization offering services for free/at subsidized rates or know 
-              someone who does and want to get added to this list, please use the "Add to our database" link on our website.
-            </li>
-            <li>
+            {/* <li>
               We are continuously updating this list and if you have any information/suggestion that does not fall 
               under #2 above,  please email us at <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a> with
               the subject line "Name of Category for the Information" For eg: "Suggestion: Food Resources"
-            </li>
+            </li> */}
           </ol>
         </Modal.Body>
       </Modal>
