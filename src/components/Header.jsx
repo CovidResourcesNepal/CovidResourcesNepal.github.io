@@ -17,16 +17,24 @@ function Header({changeLng, lng}) {
           <Nav className="justify-content-end">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/about">About Us</Nav.Link>
-            <ToggleButtonGroup type="radio" defaultValue={lng==="en" ? 1 : 2} name="options" className="language-tog">
-              <ToggleButton value={1} id="en" variant="outline-secondary" onClick={() => changeLng("en")}>
-                en
-              </ToggleButton>
-              <ToggleButton value={2} id="np" variant="outline-secondary" onClick={() => changeLng("np")}>
-                np
-              </ToggleButton>
-            </ToggleButtonGroup>
 
           </Nav>
+          {/* <Form.Control as="select" aria-label="Floating label select example" defaultValue={lng} size="sm" custom onChange={(e) => changeLng(e.target.value)}>
+            <option value="en">English</option>
+            <option value="np">Nepali</option>
+          </Form.Control> */}
+          <ToggleButtonGroup type="radio" defaultValue={lng} name="lng-select" size="sm" className="mx-2">
+            <ToggleButton value="np" id="lang-np" variant="outline-secondary" onClick={() => changeLng("np")}>
+              नेपाली
+            </ToggleButton>
+            <ToggleButton value="en" id="lang-en" variant="outline-secondary" onClick={() => changeLng("en")}>
+              English
+            </ToggleButton>
+          </ToggleButtonGroup>
+          {/* <DropdownButton variant="outline-light" id="language-selector" title="Select Language" size="sm" className="mx-2">
+            <Dropdown.Item onClick={() => changeLng("np")}>Nepali</Dropdown.Item>
+            <Dropdown.Item onClick={() => changeLng("en")}>English</Dropdown.Item>
+          </DropdownButton> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
