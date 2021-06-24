@@ -90,15 +90,23 @@ const Resources = ({t}) => {
     });
   }
 
+  const galleryTabs = categories.map((category) => {
+    return (
+      <Nav.Link as="div" eventKey={'fundraiser-' + category} className="tab-button">
+        {category}
+      </Nav.Link>
+    );
+  });
+
   // Gallery of cards by cateogry
   const gallery = byCategory.map((fundraiserArray) => {
     return (
-      <div>
+      <Tab.Pane eventKey={'fundraiser-' + fundraiserArray[0].category} title={fundraiserArray[0].category}>
         <h2 className="text-left">{fundraiserArray[0].category}</h2>
         <Row xs={1} sm={1} lg={1}>
           {renderCategory(fundraiserArray)}
         </Row>
-      </div>
+      </Tab.Pane>
     );
   });
 
@@ -116,9 +124,15 @@ const Resources = ({t}) => {
         </Nav>
         <Tab.Content>
           <Tab.Pane eventKey="fundraisers" title="Fundraisers">
-            <Container className="py-5">
-              {gallery}
-            </Container>
+            <Tab.Container defaultActiveKey={'fundraiser-Food'}>
+              <Nav className="tab-navs secondary sticky-top bg-white">
+                { galleryTabs }
+              </Nav>
+              <Tab.Content>
+                { gallery }
+              </Tab.Content>
+            </Tab.Container>
+
           </Tab.Pane>
           <Tab.Pane eventKey="resources" title="Resources">
             <Tab.Container defaultActiveKey="general-info">
