@@ -52,6 +52,11 @@
         "helpline": "हेल्पलाइन",
         "mental-health": "मानसिक स्वास्थ्य",
         "food": "खाना",
-        "medical-resources": "मेडिकल स्रोत"
+        "medical-resources": "मेडिकल स्रोत",
+        "sheets": {
+            "general-info": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhQw1EaS212dIHWPthQC30Yl5uh3SPwz4fse0FH3MKyjUwG8Y1w2Nsewz5UYlhB4L50SiN-zRbEP9A/pubhtml?gid=520029014&amp;single=true&amp;widget=true&amp;headers=false",
+            "helpline": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS01Tn-7MzxykjEdzK2C0FV32XN4jO8LBNgphwZzUtdOiV_ON47iAAIErWQ_OYdXkmixeQe65numpbC/pubhtml?gid=308641909&amp;single=true&amp;widget=true&amp;headers=false",
+            "food": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRj57-BeWilN69wGwIQu6qyi4IBBwIBzD7eXcLuxn2p4UVURS3k9OTgmqbTjQ6BBm4FtjRool0nAjFO/pubhtml?gid=424071059&amp;single=true&amp;widget=true&amp;headers=false"
+        }
     }
 }  

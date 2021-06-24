@@ -142,16 +142,16 @@ const Resources = ({t}) => {
               </Nav>
               <Tab.Content>
                 <Tab.Pane eventKey="general-info" title="General-Resources">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT9dqyD7CXCyv-48PfvCq0YG9IeXllKYU573a-fRrPBzQzvWb295IRKbcxoSJf6_x_ygBQxmuyhljOV/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.general-info')} title="General Resources"></iframe>
                 </Tab.Pane>
                 <Tab.Pane eventKey="helpline" title="Helpline-Resources">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTClFPRtyhBUiifHzU8Lqsi_3UmKIQmtKmVPycdwRdE3pqIwCBXLhYlHlJ_IG4ok9faOTsh2yB2Vc5u/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.helpline')} title="Helpline Resources"></iframe>
                 </Tab.Pane>
                 <Tab.Pane eventKey="mental-health" title="Mental-Health">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQe3p8AgEcbpozf0GpalZQSZtdYkJgbItI9uGkDCLEY8eagfqOa2Pmn3Ug-7RiH-EbnVF_zql3TIA6r/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.mental-health')} title="Mental Health Resources"></iframe>
                 </Tab.Pane>
                 <Tab.Pane eventKey="food" title="Food-Resources">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRCklDzK2w1mWMSo8uxNjaIV9CuCFzNO3Fgox8qgI3FUx83oi0TyoHtVrTUC1bUXDLxH1d9VRZ-CqK5/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.food')} title="Food Resources"></iframe>
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
