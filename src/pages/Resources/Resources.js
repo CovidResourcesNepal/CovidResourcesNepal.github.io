@@ -92,7 +92,7 @@ const Resources = ({t}) => {
 
   const galleryTabs = categories.map((category) => {
     return (
-      <Nav.Link as="div" eventKey={'fundraiser-' + category} className="tab-button">
+      <Nav.Link as="div" eventKey={'fundraiser-' + category} className="tab-button px-2 px-sm-3 mx-1 mx-md-3">
         {category}
       </Nav.Link>
     );
