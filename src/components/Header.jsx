@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 
 function Header({changeLng, lng, t}) {
+  console.log(lng);
   return (
     <Navbar bg="dark" variant="dark" expand="lg" id="site-navbar" fixed="top">
       <Container>
@@ -27,7 +28,7 @@ function Header({changeLng, lng, t}) {
             <ToggleButton value="np" id="lang-np" variant="outline-secondary" onClick={() => changeLng("np")}>
               नेपाली
             </ToggleButton>
-            <ToggleButton value="en" id="lang-en" variant="outline-secondary" onClick={() => changeLng("en")}>
+            <ToggleButton value="en-US" id="lang-en" variant="outline-secondary" onClick={() => changeLng("en")}>
               English
             </ToggleButton>
           </ToggleButtonGroup>
