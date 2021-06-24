@@ -7,16 +7,16 @@ import {
 } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 
-function Header({changeLng, lng}) {
+function Header({changeLng, lng, t}) {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" id="site-navbar" fixed="top">
       <Container>
-        <Navbar.Brand as={Link} to="/">Covid Resources Nepal</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">{t('header.site-title')}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
           <Nav className="justify-content-end">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/about">About Us</Nav.Link>
+            <Nav.Link as={Link} to="/">{t('header.menu.home')}</Nav.Link>
+            <Nav.Link as={Link} to="/about">{t('header.menu.about-us')}</Nav.Link>
 
           </Nav>
           {/* <Form.Control as="select" aria-label="Floating label select example" defaultValue={lng} size="sm" custom onChange={(e) => changeLng(e.target.value)}>

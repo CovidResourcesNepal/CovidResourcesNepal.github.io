@@ -81,7 +81,7 @@ function Homepage({t}) {
               <div className="button-container mt-3">
                 <Button variant="outline-primary" target="_blank"
                   href="https://docs.google.com/forms/d/e/1FAIpQLScDVTkpMDasRZEMy7zk-ALjH4ARE8AZlR5inpIc8opPbMdIHg/viewform">
-                    Suggest Changes
+                    {t('home.suggest-changes')}
               </Button>
               </div>
             </Card>

@@ -26,7 +26,7 @@ function Page() {
   return (
     <div className="App">
       <Router>
-        <Header changeLng={changeLanguage} lng={currLanguage}/>
+        <Header changeLng={changeLanguage} lng={currLanguage} t={t} />
         <main>
           <Switch>
             <Route path="/about">
