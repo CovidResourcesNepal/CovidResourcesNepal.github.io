@@ -8,7 +8,6 @@ import {
 import { Link } from "react-router-dom";
 
 function Header({changeLng, lng, t}) {
-  console.log(lng);
   return (
     <Navbar bg="dark" variant="dark" expand="lg" id="site-navbar" fixed="top">
       <Container>
@@ -24,11 +23,11 @@ function Header({changeLng, lng, t}) {
             <option value="en">English</option>
             <option value="np">Nepali</option>
           </Form.Control> */}
-          <ToggleButtonGroup type="radio" defaultValue={lng} name="lng-select" size="sm" className="mx-2">
+          <ToggleButtonGroup type="radio" defaultValue={lng.substring(0,2)} name="lng-select" size="sm" className="mx-2">
             <ToggleButton value="np" id="lang-np" variant="outline-secondary" onClick={() => changeLng("np")}>
               नेपाली
             </ToggleButton>
-            <ToggleButton value="en-US" id="lang-en" variant="outline-secondary" onClick={() => changeLng("en")}>
+            <ToggleButton value="en" id="lang-en" variant="outline-secondary" onClick={() => changeLng("en")}>
               English
             </ToggleButton>
           </ToggleButtonGroup>
