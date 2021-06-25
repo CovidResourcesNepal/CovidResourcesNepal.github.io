@@ -10,7 +10,7 @@ import { Row, Col, Card} from 'react-bootstrap'
 
 import { VictoryPie} from 'victory';
 
-const Resources = () => {
+const Resources = ({t}) => {
   const location = useLocation();
   const initialTab = location.hash.substring(1) === "resources" ? "resources" : "fundraisers";
 
@@ -90,15 +90,23 @@ const Resources = () => {
     });
   }
 
+  const galleryTabs = categories.map((category) => {
+    return (
+      <Nav.Link as="div" eventKey={'fundraiser-' + category} className="tab-button px-2 px-sm-3 mx-1 mx-md-3">
+        {category}
+      </Nav.Link>
+    );
+  });
+
   // Gallery of cards by cateogry
   const gallery = byCategory.map((fundraiserArray) => {
     return (
-      <div>
+      <Tab.Pane eventKey={'fundraiser-' + fundraiserArray[0].category} title={fundraiserArray[0].category}>
         <h2 className="text-left">{fundraiserArray[0].category}</h2>
         <Row xs={1} sm={1} lg={1}>
           {renderCategory(fundraiserArray)}
         </Row>
-      </div>
+      </Tab.Pane>
     );
   });
 
@@ -108,50 +116,56 @@ const Resources = () => {
       <Tab.Container defaultActiveKey={initialTab}>
         <Nav variant="tabs" className="tab-navs primary">
           <Nav.Link as="div" eventKey="fundraisers" className="tab-button">
-            Fundraisers
+          {t('home.fundraisers')}
           </Nav.Link>
           <Nav.Link as="div" eventKey="resources" className="tab-button">
-            Resources
+            {t('home.resources')}
           </Nav.Link>
         </Nav>
         <Tab.Content>
           <Tab.Pane eventKey="fundraisers" title="Fundraisers">
-            <Container className="py-5">
-              {gallery}
-            </Container>
+            <Tab.Container defaultActiveKey={'fundraiser-Food'}>
+              <Nav className="tab-navs secondary sticky-top bg-white">
+                { galleryTabs }
+              </Nav>
+              <Tab.Content>
+                { gallery }
+              </Tab.Content>
+            </Tab.Container>
+
           </Tab.Pane>
           <Tab.Pane eventKey="resources" title="Resources">
             <Tab.Container defaultActiveKey="general-info">
               <Nav className="tab-navs secondary">
                 <Nav.Link as="div" eventKey="general-info" className="tab-button">
-                  General Info
+                  {t('resources.general-info')}
                 </Nav.Link>
                 <Nav.Link as="div" eventKey="helpline" className="tab-button">
-                  Helpline
+                  {t('resources.helpline')}
                 </Nav.Link>
                 <Nav.Link as="div" eventKey="mental-health" className="tab-button">
-                  Mental Health
+                  {t('resources.mental-health')}
                 </Nav.Link>
                 <Nav.Link as="div" eventKey="food" className="tab-button">
-                  Food
+                  {t('resources.food')}
                 </Nav.Link>
                 <Button variant="outline-primary" target="_blank" href="https://www.covidconnectnp.org/">
-                  Medical Resources
+                  {t('resources.medical-resources')}
                   <FontAwesomeIcon icon={faExternalLinkAlt} size="xs" className="ml-2" />
                 </Button>
               </Nav>
               <Tab.Content>
                 <Tab.Pane eventKey="general-info" title="General-Resources">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT9dqyD7CXCyv-48PfvCq0YG9IeXllKYU573a-fRrPBzQzvWb295IRKbcxoSJf6_x_ygBQxmuyhljOV/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.general-info')} title="General Resources"></iframe>
                 </Tab.Pane>
                 <Tab.Pane eventKey="helpline" title="Helpline-Resources">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTClFPRtyhBUiifHzU8Lqsi_3UmKIQmtKmVPycdwRdE3pqIwCBXLhYlHlJ_IG4ok9faOTsh2yB2Vc5u/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.helpline')} title="Helpline Resources"></iframe>
                 </Tab.Pane>
                 <Tab.Pane eventKey="mental-health" title="Mental-Health">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQe3p8AgEcbpozf0GpalZQSZtdYkJgbItI9uGkDCLEY8eagfqOa2Pmn3Ug-7RiH-EbnVF_zql3TIA6r/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.mental-health')} title="Mental Health Resources"></iframe>
                 </Tab.Pane>
                 <Tab.Pane eventKey="food" title="Food-Resources">
-                  <iframe className="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRCklDzK2w1mWMSo8uxNjaIV9CuCFzNO3Fgox8qgI3FUx83oi0TyoHtVrTUC1bUXDLxH1d9VRZ-CqK5/pubhtml?widget=true&amp;headers=false"></iframe>
+                  <iframe className="sheet" src={t('resources.sheets.food')} title="Food Resources"></iframe>
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
