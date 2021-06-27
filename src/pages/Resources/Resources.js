@@ -169,6 +169,7 @@ const Resources = ({t}) => {
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
+            <em className="d-lg-none">{t('resources.computer-note')}</em>
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>

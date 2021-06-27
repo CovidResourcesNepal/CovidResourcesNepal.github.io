@@ -2,19 +2,23 @@
     "core": [
         {
             "name": "Kailash Raj Pandey",
-            "linkedin": "https://www.linkedin.com/in/pandeykailash/"
+            "linkedin": "https://www.linkedin.com/in/pandeykailash/",
+            "photo": "images/Kailash.jpeg"
         },
         {
             "name": "Sriyans Rauniyar",
-            "linkedin": "https://www.linkedin.com/in/sriyans-rauniyar-0aab371b4/"
+            "linkedin": "https://www.linkedin.com/in/sriyans-rauniyar-0aab371b4/",
+            "photo": "images/Sriyans.jpeg"
         },
         {
             "name": "Bidhi Mandal",
-            "linkedin": "https://www.linkedin.com/in/bidhi-mandal-5577761ab/"
+            "linkedin": "https://www.linkedin.com/in/bidhi-mandal-5577761ab/",
+            "photo": "images/Bidhi.jpeg"
         },
         {
             "name": "Prabhakar Kafle",
-            "linkedin": "https://www.linkedin.com/in/prabhakarkafle/"
+            "linkedin": "https://www.linkedin.com/in/prabhakarkafle/",
+            "photo": "images/Prabhakar.jpg"
         }
     ],
     "steering": [
@@ -47,6 +51,108 @@
         },
         {
             "name": "Swaraj Pradhan"
+        }
+    ],
+    "teams": [
+        {
+            "teamName": "Research Team",
+            "members": [
+                {
+                    "name": "Nigin Pun"
+                },
+                {
+                    "name": "Shubham Jha"
+                },
+                {
+                    "name": "Dipti Gyawali"
+                },
+                {
+                    "name": "Ruby Shah"
+                },
+                {
+                    "name": "Ankit Bhandari"
+                },
+                {
+                    "name": "Mahesh Yadav"
+                },
+                {
+                    "name": "Swaraj Pradhan"
+                },
+                {
+                    "name": "Anshuraj Sedai"
+                },
+                {
+                    "name": "Saira Ghimire"
+                }
+            ]
+        },
+        {
+            "teamName": "Tech Team",
+            "members": [
+                {
+                    "name": "Aryan Pandey"
+                },
+                {
+                    "name": "Saurav Gyawali"
+                },
+                {
+                    "name": "Nischal Paudel"
+                },
+                {
+                    "name": "Shubham Jha"
+                },
+                {
+                    "name": "Binayak Jha"
+                }
+            ]
+        },
+        {
+            "teamName": "Outreach Team",
+            "members": [
+                {
+                    "name": "Nigin Pun"
+                },
+                {
+                    "name": "Ankit Bhandari"
+                }
+            ]
+        },
+        {
+            "teamName": "Social Media Team",
+            "members": [
+                {
+                    "name": "Saira Ghimire"
+                },
+                {
+                    "name": "Dipti Gyawali"
+                },
+                {
+                    "name": "Shubham Jha"
+                }
+            ]
+        },
+        {
+            "teamName": "Translation Team",
+            "members": [
+                {
+                    "name": "Mandip Pokharel"
+                },
+                {
+                    "name": "Nabin Paudel"
+                },
+                {
+                    "name": "Oshin Bista"
+                },
+                {
+                    "name": "Kushal Basnet"
+                },
+                {
+                    "name": "Sita Bashyal"
+                },
+                {
+                    "name": "Bidit Sharma"
+                }
+            ]
         }
     ]
 }

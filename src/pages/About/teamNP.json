@@ -2,19 +2,23 @@
     "core": [
         {
             "name": "कैलाश राज पाण्डे",
-            "linkedin": "https://www.linkedin.com/in/pandeykailash/"
+            "linkedin": "https://www.linkedin.com/in/pandeykailash/",
+            "photo": "images/Kailash.jpeg"
         },
         {
             "name": "श्रीयान्स रौनियार",
-            "linkedin": "https://www.linkedin.com/in/sriyans-rauniyar-0aab371b4/"
+            "linkedin": "https://www.linkedin.com/in/sriyans-rauniyar-0aab371b4/",
+            "photo": "images/Sriyans.jpeg"
         },
         {
             "name": "बिधि मण्डल",
-            "linkedin": "https://www.linkedin.com/in/bidhi-mandal-5577761ab/"
+            "linkedin": "https://www.linkedin.com/in/bidhi-mandal-5577761ab/",
+            "photo": "images/Bidhi.jpeg"
         },
         {
             "name": "प्रभाकर काफ्ले",
-            "linkedin": "https://www.linkedin.com/in/prabhakarkafle/"
+            "linkedin": "https://www.linkedin.com/in/prabhakarkafle/",
+            "photo": "images/Prabhakar.jpg"
         }
     ],
     "steering": [
@@ -47,6 +51,111 @@
         },
         {
             "name": "स्वराज प्रधान"
+        }
+    ],
+    "teams": [
+        {
+            "teamName": "अनुसन्धान टिम",
+            "members": [
+                {
+                    "name": "निगिन पुन"
+                },
+                {
+                    "name": "शुभम झा"
+                },
+                {
+                    "name": "डिप्ती ज्ञवली"
+                },
+                {
+                    "name": "रुबी शाह"
+                },
+                {
+                    "name": "अन्कित भन्डारी"
+                },
+                {
+                    "name": "महेश यादव"
+                },
+                {
+                    "name": "स्वराज प्रधान"
+                },
+                {
+                    "name": "अन्सुराज सेढाई"
+                },
+                {
+                    "name": "रितेश कसी"
+                },
+                {
+                    "name": "साइरा घिमिरे"
+                }
+            ]
+        },
+        {
+            "teamName": "प्राविधिक टिम",
+            "members": [
+                {
+                    "name": "अर्यन पन्डे"
+                },
+                {
+                    "name": "सौरभ ज्ञवली"
+                },
+                {
+                    "name": "निस्चल पौडेल"
+                },
+                {
+                    "name": "शुभम झा"
+                },
+                {
+                    "name": "बिनायक झा"
+                }
+            ]
+        },
+        {
+            "teamName": "साझेदारी तथा बिज्ञापन टिम",
+            "members": [
+                {
+                    "name": "निगिन पुन"
+                },
+                {
+                    "name": "अन्कित भण्डारी"
+                }
+            ]
+        },
+        {
+            "teamName": "सामाजिक संजाल टिम",
+            "members": [
+                {
+                    "name": "साइरा घिमिरे"
+                },
+                {
+                    "name": "दिप्ती ज्ञवली"
+                },
+                {
+                    "name": "शुभम झा"
+                }
+            ]
+        },
+        {
+            "teamName": "अनुवाद टिम",
+            "members": [
+                {
+                    "name": "मन्दिप पोखरेल"
+                },
+                {
+                    "name": "नबिन पौडेल"
+                },
+                {
+                    "name": "ओशिन बिस्ट"
+                },
+                {
+                    "name": "कुशल बस्नेत"
+                },
+                {
+                    "name": "सिता बस्याल"
+                },
+                {
+                    "name": "विदित शर्मा"
+                }
+            ]
         }
     ]
 }

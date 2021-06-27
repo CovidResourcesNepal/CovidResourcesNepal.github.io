@@ -11,3 +11,22 @@
 .team-card:hover {
   background: #f5f5f5;
 }
+
+img.member-photo {
+  width: 180px;
+  margin: auto;
+  border: 2px solid var(--primary);
+}
+
+
+.about-teams .card {
+  margin-bottom: 10px;
+}
+.about-teams .card h5 {
+  text-align: left;
+  cursor: pointer;
+  color: #555;
+}
+.about-teams .card .card-header {
+  border: none;
+}

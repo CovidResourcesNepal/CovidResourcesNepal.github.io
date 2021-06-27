@@ -7,7 +7,8 @@ import {
 } from 'react-bootstrap'
 // FontAwesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { Trans } from 'react-i18next'
 
 function Footer({t}) {
@@ -27,9 +28,10 @@ function Footer({t}) {
           </Col>
           <Col xs={12} md={6} className="text-md-right">
           <h5 className="footer-title">{t('footer.contact')}:</h5>
-          {t('footer.email')}: <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer">covidresourcesnepal@gmail.com</a>
             
             <div className="d-flex justify-content-center justify-content-md-end social-media-links">
+              <a href="mailto:covidresourcesnepal@gmail.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faEnvelope} /> </a>
+              <a href="https://www.facebook.com/covidresourcesnepal" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} /> </a>
               <a href="https://www.instagram.com/covidresourcesnepal/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
             </div>
           </Col>

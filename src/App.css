@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+main.main {
+  min-height: calc(100vh - 120px);
+}
+
 
 .section {
   padding-top: 10vh;
@@ -48,7 +52,7 @@
 }
 
 .social-media-links a {
-  margin-left: 10px;
+  margin-left: 15px;
   font-size: 1.5em;
 }
 
